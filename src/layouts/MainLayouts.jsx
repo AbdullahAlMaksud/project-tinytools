@@ -5,7 +5,7 @@ const MainLayouts = () => {
 
     return (
         <div>
-            <nav className='fixed shadow w-full min-h-14 flex items-center z-50'>
+            <nav className='fixed  w-full min-h-14 flex items-center z-50 backdrop-blur-md'>
                 <div className=' flex gap-3 items-center justify-between container mx-auto'>
                     <div className='flex items-center gap-2 justify-center flex-row-reverse hover:bg-yellow-100 px-2 rounded hover:cursor-pointer'>
                         <h2 className='text-xl font-bold z-30 leading-4'><span className='font-black  uppercase text-yellow-700'>Tiny</span><br />Tools</h2>

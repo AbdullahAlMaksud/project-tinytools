@@ -5,8 +5,10 @@ import { Scrollbars } from 'rc-scrollbars';
 const Calculator = () => {
     const [display, setDisplay] = useState([]);
 
-    const num = display.join()
+    const num = display.join('')
     console.log(num)
+    const equal = parseFloat(num)
+    console.log(equal)
 
     const handleButton = (number) => {
         setDisplay([...display, number]);
@@ -15,6 +17,12 @@ const Calculator = () => {
     const handleReset = () => {
         setDisplay([]);
     }
+    const handleEqual = () => {
+        // const result = display.join('join')
+        // setDisplay(result);
+        console.log(equal)
+    }
+
     return (
         <div className='container mx-auto pt-20'>
             <h2 className='max-w-72 text-center font-mono font-bold'>
@@ -45,6 +53,7 @@ const Calculator = () => {
                 <button onClick={() => handleButton('.')} className='min-w-14 min-h-14 bg-red-500 rounded-md text-2xl font-bold text-white hover:bg-red-700 active:scale-95'>.</button>
                 <button onClick={() => handleButton('/')} className='min-w-14 min-h-14 bg-red-500 rounded-md text-2xl font-bold text-white hover:bg-red-700 active:scale-95'>/</button>
                 <button onClick={handleReset} className='min-w-14 min-h-14 bg-red-500 rounded-md text-2xl col-start-1 col-end-5 font-bold text-white hover:bg-red-700 active:scale-95'>Reset</button>
+                <button onClick={handleEqual} className='min-w-14 min-h-14 bg-red-500 rounded-md text-2xl col-start-1 col-end-5 font-bold text-white hover:bg-red-700 active:scale-95'>=</button>
             </div>
             <div>
 
