@@ -7,31 +7,39 @@ const Calculator = () => {
 
     const num = display.join('')
     console.log(num)
-    const equal = parseFloat(num)
-    console.log(equal)
+    // const equal = parseFloat(num)
+    // console.log(equal)
 
     const handleButton = (number) => {
         setDisplay([...display, number]);
         console.log(display)
     }
+
     const handleReset = () => {
         setDisplay([]);
     }
+
     const handleEqual = () => {
-        // const result = display.join('join')
-        // setDisplay(result);
-        console.log(equal)
+        try {
+            const result = eval(num);
+            setDisplay([result.toString()]);
+        } catch {
+            setDisplay(['Syntax Error'])
+        }
     }
+    // const result = display.join('join')
+    // setDisplay(result);
+    console.log(num)
 
     return (
-        <div className='container mx-auto pt-20'>
-            <h2 className='max-w-72 text-center font-mono font-bold'>
+        <div className='h-screen bg-red-400 mx-auto flex flex-col items-center -mt-20 pt-20'>
+            <h2 className='text-center font-mono text-2xl'>
                 Calculator
             </h2>
-            <div className='bg-slate-200 rounded-md p-5 mt-5 grid grid-cols-4 gap-3 max-w-72 '>
-                <div className='col-start-1 col-end-5 bg-yellow-400 '>
-                    <p className='bg-gray-700 rounded py-1 px-3 text-left font-stick text-white text-2xl w-full flex items-center'>
-                        <Scrollbars style={{ width: 250, height: 40, color: 'white' }}>
+            <div className='w-8/12 bg-slate-200 rounded-md p-5 mt-5 grid grid-cols-4 gap-3 '>
+                <div className='col-span-4'>
+                    <p className='bg-gray-700 rounded py-1 px-3 text-white text-2xl w-full flex items-center'>
+                        <Scrollbars style={{ width: 400, height: 40, color: 'white' }}>
                             <span className='float-right'>{display.length === 0 ? 0 : display}</span>
                         </Scrollbars>
                     </p>
